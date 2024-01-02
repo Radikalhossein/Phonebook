@@ -93,4 +93,23 @@ public class Phonebook_Test {
         Assertions.assertEquals(1,phonebook.deleteContact("javad"));
         Assertions.assertEquals(0,phonebook.deleteContact("sahar"));
     }
+
+    @Test
+    public void testGetAllContacts(){
+
+        Person person = new Person("parsa","09121111111");
+        Person person1 = new Person("javad","09123333333");
+        Person person2 = new Person("majid","09124444444");
+
+        Phonebook phonebook = new Phonebook();
+        Phonebook phonebook1 = new Phonebook();
+
+        phonebook.addContact(person);
+        phonebook.addContact(person1);
+        phonebook.addContact(person2);
+
+        Assertions.assertEquals(person.getName(),phonebook.getAllContacts().get(0).getName());
+        Assertions.assertEquals(phonebook1.getAllContacts(),phonebook1.getAllContacts());
+
+    }
 }
