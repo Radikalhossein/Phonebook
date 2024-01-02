@@ -6,6 +6,23 @@
  * Hint: Your test coverage should be 100%
  * Attention:  We would check your commits and it will affect your score
  */
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 public class Phonebook_Test {
+    @Test
+    public void testGetPhoneNumber() {
+        Person person = new Person("parsa","09121111111");
+        Person person1 = new Person("javad","09123333333");
+        Person person2 = new Person("majid","09124444444");
 
+        Phonebook phonebook = new Phonebook();
+
+        phonebook.addContact(person);
+        phonebook.addContact(person1);
+        phonebook.addContact(person2);
+
+        Assertions.assertEquals("09124444444",phonebook.getPhoneNumber("majid"));
+        Assertions.assertEquals("Contact Not Found",phonebook.getPhoneNumber("bob"));
+    }
 }
