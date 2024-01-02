@@ -59,4 +59,21 @@ public class Phonebook_Test {
         Assertions.assertEquals(1,phonebook.updateContactName("parsa","saman"));
         Assertions.assertEquals(0,phonebook.updateContactName("jafar","ali"));
     }
+
+    @Test
+    public void testUpdateContactPhoneNumber(){
+
+        Person person = new Person("parsa","09121111111");
+        Person person1 = new Person("javad","09123333333");
+        Person person2 = new Person("majid","09124444444");
+
+        Phonebook phonebook = new Phonebook();
+
+        phonebook.addContact(person);
+        phonebook.addContact(person1);
+        phonebook.addContact(person2);
+
+        Assertions.assertEquals(1,phonebook.updateContactPhoneNumber("majid","09211938196"));
+        Assertions.assertEquals(0,phonebook.updateContactPhoneNumber("Sara","09124567896"));
+    }
 }
